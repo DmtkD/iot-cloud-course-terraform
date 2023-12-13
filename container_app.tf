@@ -23,7 +23,7 @@ resource "azurerm_container_app" "spring-boot-app" {
     }
 
     http_scale_rule {
-      name                = "My HTTP rule"
+      name                = "my-http-rule"
       concurrent_requests = 300
 
     }
