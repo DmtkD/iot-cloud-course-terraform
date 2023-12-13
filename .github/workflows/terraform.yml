@@ -32,7 +32,7 @@ jobs:
 
     - name: Check env
       run: |
-        echo ${{ vars.ENV_FILE }}
+        echo $ARM_CLIENT_SECRET
         env
         
 
