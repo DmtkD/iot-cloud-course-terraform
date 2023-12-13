@@ -8,6 +8,12 @@ on:
 permissions:
   contents: read
 
+env:
+  ARM_CLIENT_ID: ${{ vars.ARM_CLIENT_ID }}
+  ARM_CLIENT_SECRET: ${{ vars.ARM_CLIENT_SECRET }}
+  ARM_SUBSCRIPTION_ID: ${{ vars.ARM_SUBSCRIPTION_ID }}
+  ARM_TENANT_ID: ${{ vars.ARM_TENANT_ID }}
+
 jobs:
   terraform:
     name: 'Terraform'
@@ -38,10 +44,10 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan -input=false -out=${{ github.workspace }}
+      run: terraform plan -input=false
 
       # On push to "master", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
-      if: github.ref == 'refs/heads/"master"' && github.event_name == 'push'
+      # if: github.ref == 'refs/heads/"master"' && github.event_name == 'push'
       run: terraform apply -auto-approve -input=false
