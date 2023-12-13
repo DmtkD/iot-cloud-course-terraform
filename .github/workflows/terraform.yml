@@ -9,16 +9,16 @@ permissions:
   contents: read
 
 env:
-  ARM_CLIENT_ID: ${{ variables.ARM_CLIENT_ID }}
-  ARM_CLIENT_SECRET: ${{ variables.ARM_CLIENT_SECRET }}
-  ARM_SUBSCRIPTION_ID: ${{ variables.ARM_SUBSCRIPTION_ID }}
-  ARM_TENANT_ID: ${{ variables.ARM_TENANT_ID }}
+  ARM_CLIENT_ID: ${{ vars.ARM_CLIENT_ID }}
+  ARM_CLIENT_SECRET: ${{ vars.ARM_CLIENT_SECRET }}
+  ARM_SUBSCRIPTION_ID: ${{ vars.ARM_SUBSCRIPTION_ID }}
+  ARM_TENANT_ID: ${{ vars.ARM_TENANT_ID }}
 
 jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    environment: production
+    environment: Terraform
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
