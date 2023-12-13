@@ -31,7 +31,10 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Check env
-      run: env
+      run: |
+        echo ${{ vars.ENV_FILE }}
+        env
+        
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
