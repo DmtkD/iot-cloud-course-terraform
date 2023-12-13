@@ -16,7 +16,7 @@ resource "azurerm_container_app_environment" "containers_env_lab4" {
   log_analytics_workspace_id = azurerm_log_analytics_workspace.my_first_app.id
 
   workload_profile {
-    name                  = "My Worload for env"
+    name                  = "mtk-workload"
     workload_profile_type = "D8"
     minimum_count         = 1
     maximum_count         = 3
